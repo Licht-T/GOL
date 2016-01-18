@@ -151,7 +151,7 @@ class ObliqueCG:
             self.calc_beta()
             self.update_direction()
         else:
-            print "Initialization..."
+            print("Initialization...")
             self.gradient()
             self.ts_project()
             self.beta.set_value(np.float32(0))
@@ -176,7 +176,7 @@ class ObliqueCG:
             self.c = c
             self.accept_new_value()
         else:
-            print " No progress "
+            print(" No progress ")
             return False
 
         return c
@@ -184,16 +184,16 @@ class ObliqueCG:
     def gram_matrix(self):
         Whost = self.X.get_value()
         wgram = np.zeros((Whost.shape[0], Whost.shape[0])).astype(np.float32)
-        for i in xrange(0, Whost.shape[0]):
-            for j in xrange(0, Whost.shape[0]):
+        for i in range(0, Whost.shape[0]):
+            for j in range(0, Whost.shape[0]):
                 wgram[i, j] = np.dot(Whost[i, :], Whost[j, :])
         return wgram
 
     def gram_matrix_mapped(self):
         Whost = self.mapped.get_value();
         wgram = np.zeros((Whost.shape[0], Whost.shape[0])).astype(np.float32)
-        for i in xrange(0, Whost.shape[0]):
-            for j in xrange(0, Whost.shape[0]):
+        for i in range(0, Whost.shape[0]):
+            for j in range(0, Whost.shape[0]):
                 wgram[i, j] = np.dot(Whost[i, :], Whost[j, :])
         return wgram
 
@@ -208,7 +208,7 @@ class ObliqueCG:
                     eval_func(D)
                 return
             if eval_func and self.total_iter % eval_rate == 0:
-                print "Iteration: ", self.total_iter
+                print("Iteration: ", self.total_iter)
                 eval_func(D)
 
 

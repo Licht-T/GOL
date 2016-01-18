@@ -61,7 +61,7 @@ if __name__ == '__main__':
     plt.show()
 
     def constraint_monitor_r(D):
-        print "Cost: ", D['c']
+        print("Cost: ", D['c'])
         image = filter_image(Omega_r.get_value().T,1)
         image=np.concatenate([image,image,image],axis=2)
         plt.imshow(image)
@@ -70,10 +70,10 @@ if __name__ == '__main__':
     start = time.clock()
     aop_learner_r.optimize(1500,constraint_monitor_r,50)
     end = time.clock()
-    print "Total elapsed: ", end-start
+    print("Total elapsed: ", end-start)
 
     def constraint_monitor_g(D):
-        print "Cost: ", D['c']
+        print("Cost: ", D['c'])
         image = filter_image(Omega_g.get_value().T,1)
         image=np.concatenate([image,image,image],axis=2)
         ax.imshow(image)
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     aop_learner_g.optimize(1500,constraint_monitor_g,50)
 
     def constraint_monitor_b(D):
-        print "Cost: ", D['c']
+        print("Cost: ", D['c'])
         image = filter_image(Omega_b.get_value().T,1)
         image = np.concatenate([image,image,image],axis=2)
         ax.imshow(image)

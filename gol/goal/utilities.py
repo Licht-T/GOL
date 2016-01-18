@@ -69,7 +69,7 @@ def filter_image(dictionary,channels):
     j=0
     while j<shape[1]:
         row = np.zeros((block[0],block[1]*26,channels),dtype=np.float32)
-        for i in xrange(0,25):
+        for i in range(0,25):
             if j>=shape[1]:
                 break
             filter = dict[:,j].reshape(block[0],block[1],channels)
@@ -88,7 +88,7 @@ def filter_image(dictionary,channels):
 def create_aop_learner(data, lifting=2, nu=1E3, kappa=1 * 1e6, mu=8 * 1E4):
     k = data.shape[0]
     init_Omega = np.float32(rng.randn(k * lifting, k))
-    for i in xrange(0, k * lifting):
+    for i in range(0, k * lifting):
         init_Omega[i, :] = init_Omega[i, :] / sqrt((init_Omega[i, :] ** 2).sum())
     Omega = theano.shared(init_Omega)
     Omega_sym = T.matrix("Omega")

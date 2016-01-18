@@ -105,7 +105,7 @@ class GrassmanGD:
 
     def step(self):
         cInit = self.cost_x()
-        print "Init cost", cInit
+        print("Init cost", cInit)
         self.c = cInit
         c = cInit
 
@@ -114,7 +114,7 @@ class GrassmanGD:
         self.total_iter = self.total_iter + 1
         #step_size=0
         self.t.set_value(self.step_size_func(self.total_iter))
-        print "step size", self.t.get_value()
+        print("step size", self.t.get_value())
         self.gradient()
         self.ts_project()
         self.UFactor,self.s,self.VFactor = sla.svd(-self.G.get_value(), full_matrices=False)
@@ -123,13 +123,13 @@ class GrassmanGD:
             self.exp_mapping()
             c = self.cost_mapped()
             self.t.set_value(np.float32(self.t.get_value() * self.rho))
-            print c
+            print(c)
 
         if c < cInit:
             self.c = c
             self.accept_new_value()
         else:
-            print " No progress "
+            print(" No progress ")
             return False
 
         return c

@@ -21,8 +21,8 @@ SOFTWARE.
 '''
 import theano.tensor as T
 from theano.tensor.nnet import conv
-from constraints import full_rank_constraint
-from constraints import no_linear_dependencies_constraint
+from .constraints import full_rank_constraint
+from .constraints import no_linear_dependencies_constraint
 #from ops.nolineardepsops import NoLinearDepOp, NoLinearDepOpGradient
 
 

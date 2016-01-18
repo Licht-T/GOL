@@ -53,7 +53,7 @@ if __name__ == '__main__':
     aop_denoiser_b, denoised_b = create_aop_denoiser(Omega_b,image.b_block,nu,0.5)
 
     def cost_monitor(D):
-        print "Cost: ", D['c']
+        print("Cost: ", D['c'])
 
     aop_denoiser_r.optimize(1000,cost_monitor,10)
     aop_denoiser_g.optimize(1000,cost_monitor,10)
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     image.b_block=denoised_b.get_value()
 
     image.blocks2channels().merge_channels().unpad()
-    print "PSNR after AOP step: ",image.PSNR(original_image)
+    print("PSNR after AOP step: ",image.PSNR(original_image))
 
     workbench['aop_result']=image.image
 

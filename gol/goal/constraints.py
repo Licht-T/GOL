@@ -43,12 +43,14 @@ class LogDet(Op):
     def set_x(self,x):
         self.x_trick=x
 
-    def perform(self, node, (x, ), (z, )):
+    def perform(self, node, xxx_todo_changeme, xxx_todo_changeme1):
+        (x, ) = xxx_todo_changeme
+        (z, ) = xxx_todo_changeme1
         try:
             s = svd(x.T, compute_uv=False)
             z[0] = np.asarray(np.sum(np.log(s**2)), dtype=x.dtype)
         except Exception:
-            print 'Failed to compute determinant', x
+            print('Failed to compute determinant', x)
             raise
 
     def grad(self, inputs, g_outputs):

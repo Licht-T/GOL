@@ -139,5 +139,5 @@ class CG:
                     eval_func({'X': self.X, 'c': c})
                 return
             if eval_func and self.total_iter % eval_rate == 0:
-                print "Iteration: ", self.total_iter
+                print("Iteration: ", self.total_iter)
                 eval_func({'X': self.X, 'c': c})
